@@ -1,0 +1,121 @@
+{
+ "decompressed_bytes": 27617586448,
+ "decompressed_gb": 25.72,
+ "per_family": {
+  "Reference": {
+   "name_tokens": 38330,
+   "distinct_objects": 810,
+   "first_offset": 1980133824,
+   "last_offset": 7740376108
+  },
+  "Enum": {
+   "name_tokens": 13079,
+   "distinct_objects": 1168,
+   "first_offset": 1980133599,
+   "last_offset": 7740375537
+  },
+  "Document": {
+   "name_tokens": 8887,
+   "distinct_objects": 518,
+   "first_offset": 1980141332,
+   "last_offset": 7740376290
+  },
+  "InfoRg": {
+   "name_tokens": 2449,
+   "distinct_objects": 1188,
+   "first_offset": 1982683135,
+   "last_offset": 7740356712
+  },
+  "Const": {
+   "name_tokens": 1808,
+   "distinct_objects": 906,
+   "first_offset": 1958251187,
+   "last_offset": 7740330974
+  },
+  "Chrc": {
+   "name_tokens": 1540,
+   "distinct_objects": 13,
+   "first_offset": 1980138314,
+   "last_offset": 7740376391
+  },
+  "AccumRgOpt": {
+   "name_tokens": 401,
+   "distinct_objects": 188,
+   "first_offset": 1984265596,
+   "last_offset": 7739890295
+  },
+  "AccumRg": {
+   "name_tokens": 385,
+   "distinct_objects": 190,
+   "first_offset": 1983432628,
+   "last_offset": 7739765256
+  },
+  "AccumRgT": {
+   "name_tokens": 208,
+   "distinct_objects": 104,
+   "first_offset": 1983433274,
+   "last_offset": 7739766340
+  },
+  "Node": {
+   "name_tokens": 110,
+   "distinct_objects": 14,
+   "first_offset": 1980132701,
+   "last_offset": 7738056398
+  },
+  "DocumentJournal": {
+   "name_tokens": 90,
+   "distinct_objects": 45,
+   "first_offset": 1982233058,
+   "last_offset": 7735835460
+  },
+  "Task": {
+   "name_tokens": 65,
+   "distinct_objects": 1,
+   "first_offset": 1984020628,
+   "last_offset": 7740244963
+  },
+  "AccumRgTn": {
+   "name_tokens": 56,
+   "distinct_objects": 28,
+   "first_offset": 1983460779,
+   "last_offset": 7739242997
+  },
+  "InfoRgSL": {
+   "name_tokens": 18,
+   "distinct_objects": 9,
+   "first_offset": 1982769435,
+   "last_offset": 7738095750
+  },
+  "Seq": {
+   "name_tokens": 14,
+   "distinct_objects": 8,
+   "first_offset": 124009310,
+   "last_offset": 8954637517
+  },
+  "AccRg": {
+   "name_tokens": 10,
+   "distinct_objects": 3,
+   "first_offset": 1984053158,
+   "last_offset": 7739338906
+  },
+  "AccRgAT": {
+   "name_tokens": 8,
+   "distinct_objects": 4,
+   "first_offset": 1984054667,
+   "last_offset": 7739348979
+  },
+  "AccRgCT": {
+   "name_tokens": 2,
+   "distinct_objects": 1,
+   "first_offset": 1984059689,
+   "last_offset": 7739351504
+  },
+  "AccRgED": {
+   "name_tokens": 2,
+   "distinct_objects": 1,
+   "first_offset": 1984060711,
+   "last_offset": 7739353300
+  }
+ },
+ "total_distinct_objects": 5199
+}
