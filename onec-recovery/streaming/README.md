@@ -41,7 +41,35 @@ An earlier 120 MB window (`../dbnames.py`) landed mid-block and saw only 1,494
 objects with no registers at all, which is why the registers were first thought
 to be unavailable without a restore.
 
-## The open question
+## Result: attribution is not reachable by streaming
+
+`probe_headers.py` settled this. Table names are confined to the schema block:
+
+| window | name hits | distinct | hits/MB |
+|---|---|---|---|
+| schema block (1.96 GB) | 33,110 | 5,100 | **1,379.6** |
+| data @ 3 GB | 13 | 8 | 0.5 |
+| data @ 6 GB | 0 | 0 | 0.0 |
+| data @ 9 GB | 0 | 0 | 0.0 |
+
+Roughly 2,760x denser in the schema block than in the data region - so the
+repeated tokens are the block listing names and field definitions, not per-table
+section markers. There are no headers for a streaming pass to track.
+
+Streaming therefore recovers *what tables exist* but not *which table a record
+belongs to*. That mapping is structural, encoded in the 1CD page layout, and
+only a real restore rebuilds it. The 1,957,477 unclassified records stay
+unclassified, and moving them to other storage does not change that - the
+limit is the relational layer, not capacity.
+
+For typed books, use `../aws-runbook/` or `../aws-runbook/MAC_RUNBOOK.md`.
+
+A possible remaining angle, not investigated: the data region may identify
+tables by numeric id rather than name string, in which case attribution could
+key off those. Confirming it means reverse-engineering the container's block
+structure - substantial work with no guarantee, and a restore is cheaper.
+
+## The open question (resolved above)
 
 The earlier extraction (`../stream_extract.py`) classified records by
 pattern-matching their *contents*, so 1,957,477 of 2,050,672 records - 95.5% -
