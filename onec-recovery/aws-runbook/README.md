@@ -13,7 +13,9 @@ df -h .
 ```
 
 **You need ≥ 60 GB free** (an 80 GB volume is the safe choice). Measured peak on a
-real run: 6.2 GB source held open + ~16 GB database + ~6 GB ibcmd temp staging.
+real run: 6.2 GB source held open + **21.6 GB database and still importing** + ~6 GB
+ibcmd temp. 1C also pre-allocates in multi-GB bursts near the end (5.7 GB in one
+20-second window was observed), so leave real slack, not a tight fit.
 This is the single thing that blocked every earlier attempt — a 1C licence
 doesn't help if the volume is too small. If it's tight, attach a bigger EBS
 volume and run everything there.

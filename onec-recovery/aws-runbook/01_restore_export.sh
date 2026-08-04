@@ -29,7 +29,7 @@ say "Preflight"
 AVAIL_GB=$(df -PBG "$WORK" | awk 'NR==2{gsub(/G/,"",$4);print $4}')
 echo "free disk at $WORK: ${AVAIL_GB} GB (need >= ${NEED_GB} GB)"
 [ "${AVAIL_GB:-0}" -ge "$NEED_GB" ] || die "not enough free disk: ${AVAIL_GB} GB < ${NEED_GB} GB.
-Measured peak: 6.2 GB source (held open) + ~16 GB database + ~6 GB ibcmd temp.
+Measured: 6.2 GB source (held open) + 21.6 GB database still importing + ~6 GB temp.
 Attach a bigger
 volume or point WORKDIR at one, then re-run."
 
