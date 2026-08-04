@@ -1,0 +1,335 @@
+{
+ "documents_with_dates": {
+  "esf_invoices": {
+   "unique": 445,
+   "date_range": [
+    "2018-11-27",
+    "2026-08-01"
+   ],
+   "by_year": {
+    "2018": 6,
+    "2019": 172,
+    "2020": 101,
+    "2021": 5,
+    "2022": 3,
+    "2023": 3,
+    "2024": 4,
+    "2025": 104,
+    "2026": 47
+   },
+   "by_month": {
+    "2018-11": 2,
+    "2018-12": 4,
+    "2019-03": 20,
+    "2019-04": 9,
+    "2019-05": 9,
+    "2019-06": 10,
+    "2019-07": 24,
+    "2019-08": 6,
+    "2019-09": 65,
+    "2019-10": 1,
+    "2019-11": 28,
+    "2020-01": 1,
+    "2020-02": 2,
+    "2020-03": 29,
+    "2020-04": 3,
+    "2020-05": 26,
+    "2020-06": 1,
+    "2020-07": 21,
+    "2020-08": 1,
+    "2020-10": 2,
+    "2020-11": 15,
+    "2021-04": 1,
+    "2021-07": 1,
+    "2021-10": 2,
+    "2021-11": 1,
+    "2022-04": 1,
+    "2022-09": 1,
+    "2022-12": 1,
+    "2023-05": 1,
+    "2023-08": 1,
+    "2023-12": 1,
+    "2024-04": 1,
+    "2024-07": 1,
+    "2024-09": 1,
+    "2024-12": 1,
+    "2025-01": 3,
+    "2025-04": 12,
+    "2025-06": 38,
+    "2025-07": 3,
+    "2025-09": 2,
+    "2025-10": 10,
+    "2025-11": 1,
+    "2025-12": 35,
+    "2026-01": 1,
+    "2026-02": 20,
+    "2026-03": 15,
+    "2026-06": 2,
+    "2026-07": 3,
+    "2026-08": 6
+   },
+   "distinct_partner_bins": 21
+  },
+  "snt_delivery_notes": {
+   "unique": 29,
+   "date_range": [
+    "2023-07-03",
+    "2026-04-22"
+   ],
+   "by_year": {
+    "2023": 1,
+    "2024": 4,
+    "2025": 22,
+    "2026": 2
+   },
+   "distinct_partner_bins": 2
+  }
+ },
+ "document_lines": {
+  "dated_lines": 1377,
+  "by_month": {
+   "2017-07": 1,
+   "2017-08": 6,
+   "2017-09": 34,
+   "2017-11": 9,
+   "2017-12": 1,
+   "2018-03": 5,
+   "2018-04": 1,
+   "2018-05": 36,
+   "2018-06": 7,
+   "2018-07": 19,
+   "2018-08": 32,
+   "2018-09": 19,
+   "2018-10": 31,
+   "2018-12": 77,
+   "2019-01": 8,
+   "2019-03": 18,
+   "2019-04": 38,
+   "2019-05": 19,
+   "2019-06": 437,
+   "2019-07": 42,
+   "2019-08": 37,
+   "2019-09": 53,
+   "2019-10": 80,
+   "2019-11": 52,
+   "2019-12": 44,
+   "2020-01": 7,
+   "2020-02": 28,
+   "2020-03": 38,
+   "2020-04": 4,
+   "2020-05": 29,
+   "2020-06": 8,
+   "2020-07": 7,
+   "2020-09": 5,
+   "2020-10": 1,
+   "2020-12": 1,
+   "2021-06": 2,
+   "2021-07": 1,
+   "2021-10": 5,
+   "2022-06": 1,
+   "2022-11": 1,
+   "2023-07": 8,
+   "2023-10": 1,
+   "2023-11": 1,
+   "2024-01": 1,
+   "2024-03": 3,
+   "2024-05": 1,
+   "2024-07": 2,
+   "2024-08": 25,
+   "2024-09": 2,
+   "2024-10": 36,
+   "2024-11": 12,
+   "2024-12": 9,
+   "2025-02": 7,
+   "2025-03": 7,
+   "2025-04": 3,
+   "2025-05": 7,
+   "2025-06": 3,
+   "2025-07": 4,
+   "2025-09": 1
+  },
+  "line_amount_distribution_KZT": {
+   "count": 5474,
+   "min": -43376.3,
+   "max": 575714.28,
+   "median": 571.43,
+   "p25": 148.66,
+   "p75": 2958.93,
+   "p95": 20604.46,
+   "negatives": 10,
+   "sum": 32261988.11
+  },
+  "note": "Amounts are per-line values parsed from document records; column semantics (net / VAT / gross / qty) are not recoverable without the table schema, so these are distributions, not revenue."
+ },
+ "counterparties": {
+  "distinct_bins_excluding_own": 205,
+  "distinct_org_names": 129,
+  "legal_form_mix": {
+   "ТОО / ЖШС (LLP)": 101,
+   "АО (JSC)": 16,
+   "ИП (sole trader)": 10,
+   "ГКП / ГУ (state entity)": 1,
+   "ООО (foreign LLC)": 1
+  },
+  "note": "BIN and name are NOT paired: source records contain parallel, non-aligned lists of identifiers and names."
+ },
+ "products": {
+  "anescom_nomenclature_lines": {
+   "distinct_items": 515,
+   "top_families": [
+    [
+     "Уплотнитель",
+     45
+    ],
+    [
+     "Профиль",
+     37
+    ],
+    [
+     "Закладная",
+     27
+    ],
+    [
+     "Алюминиевый",
+     22
+    ],
+    [
+     "Подоконная",
+     16
+    ],
+    [
+     "Уголок",
+     15
+    ],
+    [
+     "Ручка",
+     14
+    ],
+    [
+     "Винт",
+     13
+    ],
+    [
+     "Заглушка",
+     12
+    ],
+    [
+     "Соединитель",
+     12
+    ],
+    [
+     "Пластина",
+     12
+    ],
+    [
+     "Створка",
+     9
+    ],
+    [
+     "Подкладка",
+     9
+    ],
+    [
+     "Штапик",
+     8
+    ],
+    [
+     "Ответная",
+     8
+    ],
+    [
+     "Соединительный",
+     8
+    ],
+    [
+     "Держатель",
+     8
+    ],
+    [
+     "Петля",
+     7
+    ],
+    [
+     "Крепление",
+     7
+    ],
+    [
+     "Подставка",
+     7
+    ]
+   ]
+  },
+  "national_classifier_reference": {
+   "distinct_codes": 5081,
+   "distinct_entries": 1888,
+   "note": "OKED/TNVED reference data shipped inside the 1C configuration - NOT the company product catalogue."
+  }
+ },
+ "unclassified_mining": {
+  "dated_mentions_by_month": {
+   "2019-03": 2,
+   "2019-09": 22,
+   "2019-10": 1,
+   "2019-11": 1,
+   "2019-12": 1,
+   "2020-06": 1,
+   "2022-10": 1,
+   "2025-02": 4,
+   "2025-06": 13,
+   "2025-07": 9,
+   "2025-09": 1,
+   "2026-01": 50873,
+   "2026-02": 308856,
+   "2026-03": 487818,
+   "2026-04": 353447,
+   "2026-05": 129499
+  },
+  "dated_mentions_total": 1330549,
+  "document_number_series": [
+   [
+    "GTНФ",
+    659811
+   ],
+   [
+    "МП",
+    17
+   ],
+   [
+    "УС",
+    3
+   ],
+   [
+    "ТП",
+    2
+   ],
+   [
+    "МПУ",
+    2
+   ]
+  ],
+  "note": "Recovered from records the pattern classifier could not type. Dates here are mentions inside document descriptions, so they indicate activity periods, not a document count."
+ },
+ "coverage": {
+  "records_by_table": {
+   "account_entries": 24,
+   "act_refs": 10,
+   "amounts_only": 13291,
+   "counterparties": 2210,
+   "currency_refs": 513,
+   "delivery_docs": 83,
+   "document_entries": 1377,
+   "document_refs": 199,
+   "esf_invoices": 443,
+   "financial_records": 3954,
+   "iin_refs": 103,
+   "other": 1957477,
+   "product_items": 5184,
+   "text_records": 65804
+  },
+  "total_records": 2050672,
+  "text_fields_clean": 440923,
+  "text_fields_garbled": 3979,
+  "garbled_pct": 0.89,
+  "caveat": "Records are recovered by binary pattern matching, not by reading the relational schema. Coverage is partial and uneven across periods, so counts per month reflect extraction yield as well as business activity and must not be read as a sales trend."
+ }
+}
