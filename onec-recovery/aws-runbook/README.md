@@ -12,8 +12,9 @@ Check free disk on the volume you'll work on:
 df -h .
 ```
 
-**You need ≥ 40 GB free.** The restore is ~21 GB of database on top of the 6.6 GB
-source. This is the single thing that blocked the earlier attempt — a 1C licence
+**You need ≥ 60 GB free** (an 80 GB volume is the safe choice). Measured peak on a
+real run: 6.2 GB source held open + ~16 GB database + ~6 GB ibcmd temp staging.
+This is the single thing that blocked every earlier attempt — a 1C licence
 doesn't help if the volume is too small. If it's tight, attach a bigger EBS
 volume and run everything there.
 

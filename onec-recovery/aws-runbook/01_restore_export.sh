@@ -14,7 +14,7 @@ DB="$WORK/db"
 OUT="$WORK/out"
 EXPECTED_MD5="83373a5cc8a91a030af35b3a9c8fabd4"
 EXPECTED_SIZE=6599335145
-NEED_GB=40
+NEED_GB=60
 
 YANDEX_PUBLIC_URL="https://disk.yandex.com/d/SCt02VXNw6vGTw"
 
@@ -29,7 +29,8 @@ say "Preflight"
 AVAIL_GB=$(df -PBG "$WORK" | awk 'NR==2{gsub(/G/,"",$4);print $4}')
 echo "free disk at $WORK: ${AVAIL_GB} GB (need >= ${NEED_GB} GB)"
 [ "${AVAIL_GB:-0}" -ge "$NEED_GB" ] || die "not enough free disk: ${AVAIL_GB} GB < ${NEED_GB} GB.
-The restore alone needs ~21 GB on top of the 6.6 GB source. Attach a bigger
+Measured peak: 6.2 GB source (held open) + ~16 GB database + ~6 GB ibcmd temp.
+Attach a bigger
 volume or point WORKDIR at one, then re-run."
 
 # locate ibcmd from the licensed install
