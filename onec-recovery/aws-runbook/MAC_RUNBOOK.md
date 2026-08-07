@@ -50,12 +50,13 @@ Requires **Docker Desktop**.
 DRIVE=/Volumes/YourDrive                   # <- your drive
 mkdir -p "$DRIVE/anescom"/{data,out,tmp}
 
-# 1. Fetch the dump (6.6 GB) onto the drive
-HREF=$(curl -sS --get \
-  --data-urlencode "public_key=https://disk.yandex.com/d/SCt02VXNw6vGTw" \
-  "https://cloud-api.yandex.net/v1/disk/public/resources/download" \
-  | python3 -c 'import sys,json;print(json.load(sys.stdin)["href"])')
-curl -L --retry 5 -C - -o "$DRIVE/anescom/data/backup.dt" "$HREF"
+# 1. Put the dump (6.6 GB) on the drive as $DRIVE/anescom/data/backup.dt
+#
+# The original Yandex link is DEAD as of 2026-08-07 - both disk.yandex.com and
+# disk.yandex.ru return DiskNotFoundError, so it was deleted or made private.
+# Get a fresh copy from ANESCOM, or a replacement share link, then:
+#
+#   curl -L --retry 5 -C - -o "$DRIVE/anescom/data/backup.dt" "<new-url>"
 
 # verify - must print 83373a5cc8a91a030af35b3a9c8fabd4
 md5 -q "$DRIVE/anescom/data/backup.dt"

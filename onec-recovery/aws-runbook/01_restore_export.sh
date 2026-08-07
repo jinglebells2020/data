@@ -52,14 +52,26 @@ say "Fetch backup.dt"
 if [ -f "$DT" ] && [ "$(stat -c%s "$DT")" = "$EXPECTED_SIZE" ]; then
   echo "already present, correct size - skipping download"
 else
-  echo "resolving Yandex direct link..."
-  HREF=$(curl -sS --get \
-      --data-urlencode "public_key=${YANDEX_PUBLIC_URL}" \
-      "https://cloud-api.yandex.net/v1/disk/public/resources/download" \
-    | python3 -c 'import sys,json;print(json.load(sys.stdin)["href"])') \
-    || die "could not resolve the Yandex download link (link expired or made private?)"
-  echo "downloading 6.6 GB..."
-  curl -L --retry 5 --retry-delay 5 -C - -o "$DT" "$HREF" || die "download failed"
+  # NOTE (2026-08-07): the original Yandex public link returns DiskNotFoundError
+  # on both disk.yandex.com and disk.yandex.ru - it has been deleted or made
+  # private. Place backup.dt at "$DT" yourself, or set DT_SOURCE_URL to a
+  # location you control. The resolver below is kept for a replacement Yandex
+  # link; it will fail cleanly against the dead one.
+  if [ -n "${DT_SOURCE_URL:-}" ]; then
+    echo "downloading from DT_SOURCE_URL..."
+    curl -L --retry 5 --retry-delay 5 -C - -o "$DT" "$DT_SOURCE_URL" \
+      || die "download from DT_SOURCE_URL failed"
+  else
+    echo "resolving Yandex direct link..."
+    HREF=$(curl -sS --get \
+        --data-urlencode "public_key=${YANDEX_PUBLIC_URL}" \
+        "https://cloud-api.yandex.net/v1/disk/public/resources/download" \
+      | python3 -c 'import sys,json;print(json.load(sys.stdin)["href"])') \
+      || die "could not resolve the Yandex link - it is dead as of 2026-08-07.
+Put backup.dt at $DT yourself, or re-run with DT_SOURCE_URL=<url>."
+    echo "downloading 6.6 GB..."
+    curl -L --retry 5 --retry-delay 5 -C - -o "$DT" "$HREF" || die "download failed"
+  fi
 fi
 
 echo "verifying checksum..."
